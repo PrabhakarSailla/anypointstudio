@@ -20,39 +20,34 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-clean-plugin</artifactId>
-				<version>3.2.0</version>
-			</plugin>
-			<plugin>
-				<groupId>org.mule.tools.maven</groupId>
-				<artifactId>mule-maven-plugin</artifactId>
-				<version>${mule.maven.plugin.version}</version>
-				<extensions>true</extensions>
-				<configuration>
-
-					<cloudHubDeployment>
-
-						<uri>https://anypoint.mulesoft.com</uri>
-
-						<muleVersion>${deployment.app.runtime}</muleVersion>
-
-						<username>${anypoint.username}</username>
-
-						<password>${anypoint.password}</password>
-
-						<applicationName>${appName}</applicationName>
-
-						<environment>${env}</environment>
-
-						<workerType>${deployment.workerType}</workerType>
-
-						<objectStoreV2>true</objectStoreV2>
-
-					</cloudHubDeployment>
-
-				</configuration>
-			</plugin>
+  <groupId>org.mule.tools.maven</groupId>
+  <artifactId>mule-maven-plugin</artifactId>
+  <version>3.7.1</version>
+  <extensions>true</extensions>
+  <configuration>
+    <cloudhub2Deployment>
+      <uri>https://anypoint.mulesoft.com</uri>
+      <provider>MC</provider>
+      <environment>${environment}</environment>
+      <target>${targetName}</target>
+      <muleVersion>${muleVersion}</muleVersion>
+      <username>${anypoint.username}</username>
+      <password>${anypoint.password}</password>
+      <applicationName>${appName}</applicationName>
+      <replicas>1</replicas>
+      <vCores>1</vCores>
+      <deploymentSettings>
+        <http>
+          <inbound>
+            <publicUrl>${publicURL}</publicUrl>
+            <forwardSslSession>true</forwardSslSession>
+            <lastMileSecurity>true</lastMileSecurity>
+          </inbound>
+        </http>
+      </deploymentSettings>
+    </cloudhub2Deployment>
+  </configuration>
+</plugin>
 		</plugins>
 	</build>
 
