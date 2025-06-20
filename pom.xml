@@ -36,11 +36,10 @@
 						<uri>https://anypoint.mulesoft.com</uri>
 						<provider>MC</provider>
 						<environment>Sandbox</environment>
-						<target>>Cloudhub-US-East-2</target>
+						<target>Cloudhub-US-East-2</target>
 						<muleVersion>4.9.0</muleVersion>
 						<username>${user}</username>
 						<password>${pass}</password>
-						<objectStoreV2>true</objectStoreV2>
 						<applicationName>sample-application</applicationName>
 						<replicas>1</replicas>
 						<vCores>1</vCores>
