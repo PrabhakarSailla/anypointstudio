@@ -2,12 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>e36de3cc-2cd0-40fb-a524-23fbf23d01ec</groupId>
-	<artifactId>cicdpipeline</artifactId>
+	<groupId>com.mycompany</groupId>
+	<artifactId>practicesession</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>mule-application</packaging>
 
-	<name>cicdpipeline</name>
+	<name>practicesession</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -20,32 +20,22 @@
 	<build>
 		<plugins>
 			<plugin>
-  <groupId>org.mule.tools.maven</groupId>
-  <artifactId>mule-maven-plugin</artifactId>
-  <version>3.9.9</version>
-  <extensions>true</extensions>
-  <configuration>
-    <cloudhub2Deployment>
-      <uri>https://anypoint.mulesoft.com</uri>
-      <provider>MC</provider>
-      <environment>${environment}</environment>
-      <target>${targetName}</target>
-      <muleVersion>${muleVersion}</muleVersion>
-      <username>${anypoint.username}</username>
-      <password>${anypoint.password}</password>
-      <applicationName>${appName}</applicationName>
-      <replicas>1</replicas>
-      <vCores>1</vCores>
-      
-    </cloudhub2Deployment>
-  </configuration>
-</plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>3.2.0</version>
+			</plugin>
+			<plugin>
+				<groupId>org.mule.tools.maven</groupId>
+				<artifactId>mule-maven-plugin</artifactId>
+				<version>${mule.maven.plugin.version}</version>
+				<extensions>true</extensions>
+			</plugin>
 		</plugins>
 	</build>
 
 	<dependencies>
 		<dependency>
-			<groupId>e36de3cc-2cd0-40fb-a524-23fbf23d01ec</groupId>
+			<groupId>org.mule.connectors</groupId>
 			<artifactId>mule-http-connector</artifactId>
 			<version>1.10.3</version>
 			<classifier>mule-plugin</classifier>
@@ -57,9 +47,15 @@
 			<classifier>mule-plugin</classifier>
 		</dependency>
 		<dependency>
+			<groupId>org.mule.examples</groupId>
+			<artifactId>accelerator-sap-config-module</artifactId>
+			<version>1.4.1</version>
+			<classifier>mule-plugin</classifier>
+		</dependency>
+		<dependency>
 			<groupId>com.mulesoft.connectors</groupId>
-			<artifactId>mule-salesforce-connector</artifactId>
-			<version>10.22.5</version>
+			<artifactId>mule-sap-connector</artifactId>
+			<version>5.9.12</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
 	</dependencies>
